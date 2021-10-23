@@ -1,24 +1,41 @@
+import styled from "styled-components";
+
 const Card = ({ ip, isp, region, timezone }) => {
   return (
-    <div>
+    <Content>
       <div>
-        <h2>IP ADDRESS</h2>
-        <span>{ip}</span>
+        <PropertyName>IP ADDRESS</PropertyName>
+        <Property>{ip}</Property>
       </div>
       <div>
-        <h2>LOCATION</h2>
-        <span>{region}</span>
+        <PropertyName>LOCATION</PropertyName>
+        <Property>{region}</Property>
       </div>
       <div>
-        <h2>TIME ZONE</h2>
-        <span>{timezone}</span>
+        <PropertyName>TIME ZONE</PropertyName>
+        <Property>{timezone}</Property>
       </div>
       <div>
-        <h2>ISP</h2>
-        <span>{isp}</span>
+        <PropertyName>ISP</PropertyName>
+        <Property>{isp}</Property>
       </div>
-    </div>
+    </Content>
   );
 };
+
+const Content = styled.div`
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;
+
+const PropertyName = styled.div`
+  font-weight: 400;
+`;
+
+const Property = styled.span`
+  font-weight: 700;
+`;
 
 export default Card;
