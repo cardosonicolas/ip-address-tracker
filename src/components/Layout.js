@@ -15,7 +15,7 @@ const Content = styled.div`
 
 const GlobalStyle = createGlobalStyle`
 :root {
-      font-size: 16px;
+      font-size: 18px;
 }
 * + * {
       margin-top: 1.5em;

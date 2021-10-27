@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
-import { useDefaultIP } from "./index";
+import { defaultIP } from "../api/defaultIP";
 import axios from "axios";
-
 const API_URL = "https://geo.ipify.org/api/v2/";
-const KEY = "at_l8Ke8FC408dN1ZMwHf7IfumydFT6E";
+const KEY = "at_CxknW6mNvnztwRbJ4bqa2EE5goa2i";
 const URL = `${API_URL}country,city?apiKey=${KEY}&ipAddress=`;
 
 export function useGeolocation() {
   const [geolocation, setGeolocation] = useState([]);
-  const [query, setQuery] = useState(useDefaultIP);
+  const [query, setQuery] = useState(defaultIP);
 
   useEffect(() => {
     axios
