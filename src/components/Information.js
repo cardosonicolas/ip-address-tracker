@@ -1,31 +1,34 @@
 import styled from "styled-components";
 
-const Card = ({ ip, isp, region, timezone }) => {
+const Information = ({ ip, isp, region, timezone }) => {
   return (
     <Content>
-      <div>
+      <Wrapper>
         <PropertyName>IP ADDRESS</PropertyName>
         <Property>{ip}</Property>
-      </div>
-      <div>
+      </Wrapper>
+      <Wrapper>
         <PropertyName>LOCATION</PropertyName>
         <Property>{region}</Property>
-      </div>
-      <div>
+      </Wrapper>
+      <Wrapper>
         <PropertyName>TIME ZONE</PropertyName>
         <Property>{timezone}</Property>
-      </div>
-      <div>
+      </Wrapper>
+      <Wrapper>
         <PropertyName>ISP</PropertyName>
         <Property>{isp}</Property>
-      </div>
+      </Wrapper>
     </Content>
   );
 };
 
 const Content = styled.div`
-  padding: 1em 3.5em;
+  padding: 0 3.5em 1em 3.5em;
   display: flex;
+  position: absolute;
+  z-index: 2;
+  top: 7em;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -33,8 +36,8 @@ const Content = styled.div`
   background-color: hsl(0, 0%, 100%);
 
   @media (min-width: 1024px) {
-    width: 80%;
     margin-top: 3em;
+    width: 80%;
     padding: 2em;
     flex-direction: row;
     justify-content: space-around;
@@ -48,11 +51,15 @@ const Content = styled.div`
   } ;
 `;
 
+const Wrapper = styled.div`
+  margin-top: 1em;
+`;
+
 const PropertyName = styled.div`
   color: hsl(0, 0%, 59%);
-  font-size: 0.7em;
-  font-weight: 400;
-  padding: 1em;
+  font-size: 0.6em;
+  font-weight: 700;
+  padding: 0.5em 1em;
 `;
 
 const Property = styled.span`
@@ -60,4 +67,4 @@ const Property = styled.span`
   font-weight: 700;
 `;
 
-export default Card;
+export default Information;

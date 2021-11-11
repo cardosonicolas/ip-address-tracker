@@ -1,7 +1,8 @@
-import Card from "../components/Card";
+import Information from "../components/Information";
 import { useGeolocation } from "../hooks";
 import styled from "styled-components";
 import img from "../images/pattern-bg.png";
+import Map from "../components/Map";
 
 const Arrow = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
   return (
     <Container>
       <Title>IP address Tracker</Title>
+      {/* <HeroImage src={img} /> */}
       <SearchBar>
         <Search
           type="number"
@@ -28,11 +30,26 @@ const Home = () => {
           <Arrow />
         </SearchIconWrapper>
       </SearchBar>
-      <Card
+      <Information
         ip={ip}
         isp={isp}
         region={location?.region}
         timezone={location?.timezone}
+      />
+      <Map
+        googleMapURL={
+          "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDCUYkwhlSC-GUpYw6Ohuy8s6ym6dnROT8"
+        }
+        containerElement={
+          <div
+            style={{
+              height: "100%",
+              width: "100%",
+            }}
+          />
+        }
+        mapElement={<div style={{ height: "100vh", top: "7em" }} />}
+        loadingElement={<p>loading...</p>}
       />
     </Container>
   );
@@ -42,16 +59,25 @@ const Title = styled.h1`
   font-size: 1.5em;
   color: hsl(0, 0%, 100%);
   margin-bottom: 0;
+  z-index: 1;
+`;
+
+const HeroImage = styled.img`
+  margin: 0;
+  //   position: absolute;
+  width: 100%;
+  height: 50vh;
 `;
 
 const Container = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   background-image: url(${img});
-  height: 15em;
-  backgound-repeat: no-repeat;
-  background-size: cover;
+  height: 100vh;
+  //     backgound-repeat: no-repeat;
+  //   background-size: cover;
 
   @media (min-width: 1024px) {
     justify-content: space-between;
