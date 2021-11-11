@@ -7,14 +7,17 @@ const Information = ({ ip, isp, region, timezone }) => {
         <PropertyName>IP ADDRESS</PropertyName>
         <Property>{ip}</Property>
       </Wrapper>
+      <VerticalLine size={"50"} width={"1"} />
       <Wrapper>
         <PropertyName>LOCATION</PropertyName>
         <Property>{region}</Property>
       </Wrapper>
+      <VerticalLine size={"50"} width={"1"} />
       <Wrapper>
         <PropertyName>TIME ZONE</PropertyName>
         <Property>{timezone}</Property>
       </Wrapper>
+      <VerticalLine size={"50"} width={"1"} />
       <Wrapper>
         <PropertyName>ISP</PropertyName>
         <Property>{isp}</Property>
@@ -22,6 +25,14 @@ const Information = ({ ip, isp, region, timezone }) => {
     </Content>
   );
 };
+
+const VerticalLine = styled.hr`
+  display: none;
+
+  @media (min-width: 1024px) {
+    display: inline-block;
+  }
+`;
 
 const Content = styled.div`
   padding: 0 3.5em 1em 3.5em;
@@ -53,6 +64,9 @@ const Content = styled.div`
 
 const Wrapper = styled.div`
   margin-top: 1em;
+  @media (min-width: 1024px) {
+    margin-top: 0;
+  }
 `;
 
 const PropertyName = styled.div`

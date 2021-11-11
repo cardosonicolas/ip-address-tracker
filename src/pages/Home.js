@@ -19,7 +19,6 @@ const Home = () => {
   return (
     <Container>
       <Title>IP address Tracker</Title>
-      {/* <HeroImage src={img} /> */}
       <SearchBar>
         <Search
           type="number"
@@ -37,18 +36,17 @@ const Home = () => {
         timezone={location?.timezone}
       />
       <Map
-        googleMapURL={
-          "https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDCUYkwhlSC-GUpYw6Ohuy8s6ym6dnROT8"
-        }
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_API_KEY}`}
         containerElement={
           <div
             style={{
               height: "100%",
               width: "100%",
+              marginTop: 0,
             }}
           />
         }
-        mapElement={<div style={{ height: "100vh", top: "7em" }} />}
+        mapElement={<div style={{ height: "100vh", top: "5.5em" }} />}
         loadingElement={<p>loading...</p>}
       />
     </Container>
@@ -57,16 +55,10 @@ const Home = () => {
 
 const Title = styled.h1`
   font-size: 1.5em;
+  font-weight: 500;
   color: hsl(0, 0%, 100%);
   margin-bottom: 0;
   z-index: 1;
-`;
-
-const HeroImage = styled.img`
-  margin: 0;
-  //   position: absolute;
-  width: 100%;
-  height: 50vh;
 `;
 
 const Container = styled.div`
@@ -75,22 +67,25 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-image: url(${img});
-  height: 100vh;
-  //     backgound-repeat: no-repeat;
-  //   background-size: cover;
-
+  min-width: 100%;
+  min-height: 100vh;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
   @media (min-width: 1024px) {
     justify-content: space-between;
   }
 `;
 
 const SearchIconWrapper = styled.div`
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 -1em;
-  width: 2em;
+  width: 2.5em;
   height: 3em;
+  position: absolute;
   border-radius: 0 15px 15px 0;
-  background-size: contain;
   background-color: hsl(0, 0%, 0%);
 `;
 
@@ -116,6 +111,10 @@ const Search = styled.input`
   border: none;
   border-radius: 15px 0 0 15px;
   outline: 0;
+
+  &::placeholder {
+    font-size: 0.9em;
+  }
 `;
 
 export default Home;
