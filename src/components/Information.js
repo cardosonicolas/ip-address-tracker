@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Information = ({ ip, isp, region, timezone }) => {
   return (
     <Content>
+      <VerticalLine />
       <Wrapper>
         <PropertyName>IP ADDRESS</PropertyName>
         <Property>{ip}</Property>
@@ -22,6 +23,7 @@ const Information = ({ ip, isp, region, timezone }) => {
         <PropertyName>ISP</PropertyName>
         <Property>{isp}</Property>
       </Wrapper>
+      <VerticalLine />
     </Content>
   );
 };
@@ -49,7 +51,7 @@ const Content = styled.div`
   @media (min-width: 1024px) {
     margin-top: 3em;
     width: 80%;
-    padding: 2em;
+    padding: 1.5em 2em 1.5em 2em;
     flex-direction: row;
     justify-content: space-around;
     box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 50%);

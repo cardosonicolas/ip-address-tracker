@@ -36,7 +36,7 @@ const Home = () => {
         timezone={location?.timezone}
       />
       <Map
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_API_KEY}`}
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_API_KEY_MAP}`}
         containerElement={
           <div
             style={{

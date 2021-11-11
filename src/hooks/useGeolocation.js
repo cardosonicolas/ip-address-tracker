@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { defaultIP } from "../api/defaultIP";
 import axios from "axios";
 const API_URL = "https://geo.ipify.org/api/v2/";
-const KEY = "at_CxknW6mNvnztwRbJ4bqa2EE5goa2i";
+const KEY = `${process.env.REACT_APP_API_KEY_GEOLOCATION}`;
 const URL = `${API_URL}country,city?apiKey=${KEY}&ipAddress=`;
 
 export function useGeolocation() {
