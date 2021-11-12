@@ -21,7 +21,7 @@ const Home = () => {
       <Title>IP address Tracker</Title>
       <SearchBar>
         <Search
-          type="number"
+          type="text"
           onChange={handleChange}
           placeholder={"Search for any IP address or domain"}
         />
