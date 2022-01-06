@@ -46,6 +46,8 @@ const Home = () => {
             }}
           />
         }
+        lat={location?.lat}
+        lng={location?.lng}
         mapElement={<div style={{ height: "100vh", top: "5.5em" }} />}
         loadingElement={<p>loading...</p>}
       />
